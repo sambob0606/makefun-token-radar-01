@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — the pre-token protocol board</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="eyebrow">MAKE.FUN &middot; TOKEN-RADAR-01 &middot; DEFI PROTOCOLS, SEALED SNAPSHOT</div>
+  <h1>Token Radar</h1>
+  <p class="lede">Which protocol should you farm next? Every protocol DefiLlama tracks that
+  <strong>records no token yet</strong>, ranked by what its launch would be worth if its
+  record stayed as it is &mdash; with the concrete steps to farm each one.</p>
+  <p class="meta" id="meta">Loading the board&hellip;</p>
+</header>
+
+<section class="stats" id="stats" aria-label="Board totals"></section>
+
+<section class="panel method">
+  <h2>How the radar scores</h2>
+  <p><strong>Implied value = TVL &times; multiple &times; growth &times; age &times; breadth.</strong>
+  The multiple is not a guess: it is the category&rsquo;s own FDV/TVL, the median
+  market-cap-to-TVL of the snapshot&rsquo;s token-having protocols in the same category
+  (at least 3 with a market cap, else the global median shown in the stats above). Growth is the
+  protocol&rsquo;s 7-day TVL change, age is how long DefiLlama has tracked it with no
+  token recorded, breadth is how many chains it runs on. No protocol name is ever
+  special-cased &mdash; the same formula scores all 198 rows.</p>
+  <p class="fine">Eligibility is the snapshot&rsquo;s own watchlist rule with the floor removed:
+  no token recorded, and not a wrapped, staked or bridged product of a token that
+  already trades. The 40-protocol watchlist is the floor, never the ceiling:
+  this board adds 158 early protocols below it. &ldquo;Records no token&rdquo; is not proof a
+  protocol has none &mdash; its DefiLlama record may simply not carry one. An implied
+  value is this entry&rsquo;s own claim, never a prediction that a token will launch.</p>
+</section>
+
+<section class="panel controls" aria-label="Board controls">
+  <label>Search <input id="q" type="search" placeholder="name or slug&hellip;" autocomplete="off"></label>
+  <label>Category <select id="cat"><option value="">All categories</option></select></label>
+  <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+  <label>Sort by
+    <select id="sort">
+      <option value="value">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7-day change</option>
+      <option value="age">Age</option>
+      <option value="name">Name</option>
+    </select>
+  </label>
+  <label class="check"><input id="watchOnly" type="checkbox"> Watchlist only</label>
+  <span class="count" id="count"></span>
+</section>
+
+<section class="panel board-panel">
+  <table id="board">
+    <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>Protocol</th>
+        <th>Category</th>
+        <th class="num">TVL</th>
+        <th class="num">7d</th>
+        <th class="num">Age</th>
+        <th class="num">Implied value</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="hint">Click a row for its detail view: the value math and the six farm steps.</p>
+</section>
+
+<section class="panel detail" id="detail" hidden aria-label="Protocol detail"></section>
+
+<section class="panel live">
+  <h2>Already trading &mdash; not ranked</h2>
+  <p>The market has already priced these: their token trades, so the board shows the
+  market&rsquo;s own value instead of a model&rsquo;s. They are here for contrast, never mixed
+  into the ranking.</p>
+  <div class="live-grid" id="live"></div>
+</section>
+
+<footer class="foot">
+  <p>Token Radar &middot; model <span id="modelVer"></span> &middot; snapshot
+  <span id="snapSrc"></span> &middot; built for make.fun token-radar-01. Implied values are
+  this entry&rsquo;s own claim. Farm at your own risk: never pay to claim, never connect a
+  wallet from a link in a DM, and never farm with funds you cannot afford to lock.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="model.js"></script>
+<script src="farm.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

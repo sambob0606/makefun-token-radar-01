@@ -1,0 +1,184 @@
+/* Token Radar — a dark radar-room page: deep navy, phosphor green, cyan accents. */
+:root {
+  --bg: #070d18;
+  --panel: #0d1626;
+  --panel-2: #111d33;
+  --line: #1e2f4d;
+  --text: #dbe7f5;
+  --muted: #8ba3c2;
+  --faint: #5d7391;
+  --green: #34d399;
+  --cyan: #22d3ee;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.top { max-width: 1080px; margin: 0 auto; padding: 34px 20px 8px; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: var(--green);
+  text-transform: uppercase;
+}
+h1 {
+  margin: 8px 0 6px;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.lede { margin: 0 0 10px; font-size: 17px; color: var(--text); max-width: 760px; }
+.lede strong { color: var(--cyan); }
+.meta { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0 0 6px; }
+section { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 14px auto;
+}
+h2 { margin: 0 0 8px; font-size: 17px; letter-spacing: -0.01em; }
+.method p { margin: 0 0 8px; }
+.method p:last-child { margin-bottom: 0; }
+.fine { color: var(--muted); font-size: 13px; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.stat b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 24px;
+  color: var(--cyan);
+  font-weight: 700;
+}
+.stat span { color: var(--muted); font-size: 12px; }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: end;
+}
+.controls label { font-size: 12px; color: var(--muted); display: grid; gap: 4px; }
+.controls label.check { display: flex; align-items: center; gap: 6px; padding-bottom: 8px; color: var(--text); }
+input[type="search"], select {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+  min-width: 170px;
+}
+input[type="search"]:focus, select:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.count { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--muted); padding-bottom: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+thead th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--faint);
+  border-bottom: 1px solid var(--line);
+  padding: 6px 8px;
+}
+tbody td { padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--panel-2); }
+tbody tr.sel { background: #14263f; }
+.num { text-align: right; font-family: var(--mono); white-space: nowrap; }
+.rank { font-family: var(--mono); color: var(--green); font-weight: 700; }
+.name { font-weight: 650; }
+.slug { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+.chains { font-size: 12px; color: var(--muted); }
+.badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  border-radius: 20px;
+  padding: 1px 7px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+.up { color: var(--green); }
+.down { color: var(--red); }
+.flat { color: var(--muted); }
+.value { font-family: var(--mono); font-weight: 700; color: var(--cyan); }
+.hint { color: var(--faint); font-size: 12px; margin: 10px 0 0; }
+.detail h2 { font-size: 22px; }
+.detail .facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+.fact { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.fact span { display: block; font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+.fact b { font-family: var(--mono); font-size: 16px; }
+.math {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: #0a1424;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+.math b { color: var(--cyan); }
+.steps { margin: 12px 0 0; padding-left: 20px; }
+.steps li { margin-bottom: 8px; }
+.steps li::marker { color: var(--green); font-weight: 700; }
+.warn {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--amber);
+  border-radius: 8px;
+  color: var(--amber);
+  font-size: 13px;
+}
+.live-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.live-cell { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.live-cell b { display: block; font-size: 14px; }
+.live-cell span { font-family: var(--mono); font-size: 12px; color: var(--cyan); }
+.live-cell small { display: block; color: var(--faint); font-size: 11px; margin-top: 2px; }
+.foot { color: var(--faint); font-size: 12px; padding: 8px 20px 34px; }
+.empty { color: var(--muted); padding: 18px 8px; text-align: center; }
+/* Deep-linked detail view: the protocol leads the page, no scroll needed. */
+body.detail-view .stats,
+body.detail-view .method,
+body.detail-view .controls,
+body.detail-view .board-panel,
+body.detail-view .lede { display: none; }
+/* The detail view is one viewport tall: tighten it so the warning fits. */
+body.detail-view .top { padding-top: 18px; }
+body.detail-view .panel { padding: 12px 18px; }
+body.detail-view .detail .facts { margin: 8px 0; }
+body.detail-view .detail .steps li { margin-bottom: 5px; }
+@media (max-width: 760px) {
+  .stats, .detail .facts, .live-grid { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: 32px; }
+  .chains { display: none; }
+}
